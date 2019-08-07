@@ -53,3 +53,6 @@ const ctaHOne = document.querySelector('h1');
 const ctaImage = document.getElementById('cta-img');
   ctaImage.src = siteContent['cta']['img-src'];
 
+const ctaButton = document.querySelector('button');
+  ctaButton.textContent = siteContent['cta']['button'];
+
