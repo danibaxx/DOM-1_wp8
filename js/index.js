@@ -42,9 +42,29 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 // set nav items
-const navItems = document.querySelectorAll('a');
+let navItems = document.querySelectorAll('nav a');
   console.log(navItems);
-  navItems.textContent = siteContent['nav']['nav-item-1'];
+  navItems.forEach((nav, index) => {
+    nav.textContent = siteContent.nav[`nav-item-${index+1}`];
+  });
+
+  navItems.forEach((nav) => {
+    nav.style.color = 'green';
+  });
+
+  navItems = document.getElementsByTagName('a')[0];
+  const createNav = (nav) => {
+    const newNav = document.createElement('a');
+      newNav.textContent = nav;
+        return newNav;
+  };
+
+  navItems.prepend(createNav('My Idea'));
+  navItems.append(createNav('Your Idea'));
+
+
+
+
 
 
 // set cta items
@@ -61,26 +81,41 @@ const ctaButton = document.querySelector('button');
 const mainContent = document.getElementsByClassName('main-content')[0];
   console.log(mainContent);
 
-  mainContent.getElementsByTagName('h4')[0].innerHTML = siteContent['main-content']['features-h4'];
+  mainContent.getElementsByTagName('h4')[0].textContent = siteContent['main-content']['features-h4'];
 
-  mainContent.getElementsByTagName('p')[0].innerHTML = siteContent['main-content']['features-content'];
+  mainContent.getElementsByTagName('p')[0].textContent = siteContent['main-content']['features-content'];
 
-  mainContent.getElementsByTagName('h4')[1].innerHTML = siteContent['main-content']['about-h4'];
+  mainContent.getElementsByTagName('h4')[1].textContent = siteContent['main-content']['about-h4'];
 
-  mainContent.getElementsByTagName('p')[1].innerHTML = siteContent['main-content']['about-content'];
+  mainContent.getElementsByTagName('p')[1].textContent = siteContent['main-content']['about-content'];
 
 const middleImage = document.getElementById('middle-img');
   middleImage.src = siteContent['main-content']['middle-img-src'];
 
-  mainContent.getElementsByTagName('h4')[2].innerHTML = siteContent['main-content']['services-h4'];
+  mainContent.getElementsByTagName('h4')[2].textContent = siteContent['main-content']['services-h4'];
 
-  mainContent.getElementsByTagName('p')[2].innerHTML = siteContent['main-content']['services-content'];
+  mainContent.getElementsByTagName('p')[2].textContent = siteContent['main-content']['services-content'];
 
-  mainContent.getElementsByTagName('h4')[3].innerHTML = siteContent['main-content']['product-h4'];
+  mainContent.getElementsByTagName('h4')[3].textContent = siteContent['main-content']['product-h4'];
 
-  mainContent.getElementsByTagName('p')[3].innerHTML = siteContent['main-content']['product-content'];
+  mainContent.getElementsByTagName('p')[3].textContent = siteContent['main-content']['product-content'];
 
-  mainContent.getElementsByTagName('h4')[4].innerHTML = siteContent['main-content']['vision-h4'];
+  mainContent.getElementsByTagName('h4')[4].textContent = siteContent['main-content']['vision-h4'];
 
-  mainContent.getElementsByTagName('p')[4].innerHTML = siteContent['main-content']['vision-content'];
+  mainContent.getElementsByTagName('p')[4].textContent = siteContent['main-content']['vision-content'];
+
+// contact items
+const contact = document.getElementsByClassName('contact')[0];
+  contact.getElementsByTagName('h4')[0].textContent = siteContent['contact']['contact-h4'];
+
+  contact.getElementsByTagName('p')[0].textContent = siteContent['contact']['address'];
+
+  contact.getElementsByTagName('p')[1].textContent = siteContent['contact']['phone'];
+
+  contact.getElementsByTagName('p')[2].textContent = siteContent['contact']['email'];
+
+// footer item
+const footer = document.querySelector('footer');
+  footer.textContent = siteContent['footer']['copyright'];
+
 
